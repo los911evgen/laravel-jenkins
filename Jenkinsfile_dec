@@ -13,8 +13,9 @@ pipeline {
         }
         stage('Развертывание') {
             steps {
-                sh 'ls'            
-                sh './deploy.sh'
+                sh 'ls'
+                sh 'pwd'
+                sh "./deploy.sh"
             }
         }
     }
