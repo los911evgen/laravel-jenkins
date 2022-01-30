@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+  app: 
+   build:
+     context: ./ 
+     dockerfile: Dockerfile
+   container_name: app
+   restart: unless-stopped
+   working_dir: /var/www/html/
+#   command: bash -c "php artisan cms:initialize --seed && php artisan key:generate && php-fpm"
+   depends_on:
+     - db 
+   volumes:
+     - data:/var/www
+   networks:
+     - cms
+
+  db:
+   image: postgres:12.4
+   restart: always
+   container_name: db
+   ports:
+    - 5422:5432
+   env_file:
+    - .env
+   environment:
+    - POSTGRES_DB=${DB_DATABASE}
+    - POSTGRES_USER=${DB_USERNAME}
+    - POSTGRES_PASSWORD=${DB_PASSWORD}
+   networks:
+    - cms
+   volumes:
+    - ./.docker/conf/postgres/:/docker-entrypoint-initdb.d/
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    depends_on:
+      - app
+    volumes:
+      - data:/var/www
+      - ./docker-compose/nginx/conf.d:/etc/nginx/conf.d/
+    networks:
+      - cms
+
+volumes:
+  data: {}
+networks:
+  cms:
+    driver: bridge
