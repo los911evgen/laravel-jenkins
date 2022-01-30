@@ -1,13 +1,10 @@
 version: "3.7"
 services:
   app: 
-   build:
-     context: ./ 
-     dockerfile: Dockerfile
+   image: los911/laravel-jenkins:latest 
    container_name: app
    restart: unless-stopped
    working_dir: /var/www/html/
-#   command: bash -c "php artisan cms:initialize --seed && php artisan key:generate && php-fpm"
    depends_on:
      - db 
    volumes:
