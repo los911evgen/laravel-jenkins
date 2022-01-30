@@ -4,33 +4,25 @@
 -----
 ## Оглавление
 
-* [Возможности](#item1)
-* [Развёртывание](#item2)
+* [Этапы пайплайна](#item1)
+* [Развёртка](#item2)
 * [Использование](#item3)
 
 -----
 <a name="item1"></a>
-## Возможности:
-* Admin Panel
-  * Custom template with Bulma
-  * Google Analytics API integrated dashboard
-  * Server side oriented datatables
-  * Page, category, and article management
-  * [Trumbowyg](https://alex-d.github.io/Trumbowyg/) as the WYSIWYG editor
-  * [elFinder](https://studio-42.github.io/elFinder/) as the file manager
-  * [Feather Icons](https://feathericons.com) as the icon package
-* Front-end
-  * Custom template with Bulma
-  * View pages, articles and categories
+## Этапы пайплайна:
+  * Checkout SCM
+  * Сборка
+  * Экспорт в registry
+  * Deployment
 
 -----
 <a name="item2"></a>
-## Quick Start:
+## Развёртка:
 
-Clone this repository and install the dependencies.
+Клонировать репозиторий.
 
-    $ git clone https://github.com/ozdemirburak/laravel-8-simple-cms.git && cd laravel-8-simple-cms
-    $ composer install
+    $ git clone https://github.com/los911evgen/laravel-jenkins.git .
 
 Run the command below to initialize. Do not forget to configure your .env file. 
 
