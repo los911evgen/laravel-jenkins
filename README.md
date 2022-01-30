@@ -91,15 +91,3 @@ javascript and style files run `npm run production`.
 To serve the application, you can use `php artisan serve`, then open [http://localhost:8000](http://localhost:8000) 
 from your browser. To access the admin panel, hit the link [http://localhost:8000/admin](http://localhost:8000/admin) 
 from your browser. The application comes with default user with email address `admin@admin.com` and `123456`.
-
-
------
-<a name="item5"></a>
-## Screenshots
-
-![Index](https://ozdemirburak.com/i/upload/cms/index.png)
-![Admin Auth](https://ozdemirburak.com/i/upload/cms/login.png)
-![Admin Dashboard](https://ozdemirburak.com/i/upload/cms/dashboard.png)
-![Admin Datatables](https://ozdemirburak.com/i/upload/cms/datatables.png)
-![Admin Dashboard](https://ozdemirburak.com/i/upload/cms/editor.png)
-![Admin File Manager](https://ozdemirburak.com/i/upload/cms/file-manager.png)
