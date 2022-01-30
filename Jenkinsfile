@@ -1,16 +1,31 @@
 pipeline {
-    agent { docker { image 'python:latest' } }
-
+    agent any
+    environment {
+      registry = "los911/laravel-jenkins"
+      registryCredential = 'dockerhub'
+      dockerImage = ''
+    }
     stages {
         stage('Checkout Source') {
             steps {
                 git credentialsId: 'semyonb20', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
              }
         }
-        stage('Подготовка') {
-            steps {
-                sh "python --version"
+        stage('Building image') {
+            steps{
+              script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+              }
             }
+        }
+        stage('Deploy Image') {
+          steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+              dockerImage.push()
+              }
+            }
+          }     
         }
         stage('Сборка') {
             steps {
