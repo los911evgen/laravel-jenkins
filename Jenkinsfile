@@ -2,6 +2,11 @@ pipeline {
     agent { docker { image 'python:latest' } }
 
     stages {
+        stage('Checkout Source') {
+            steps {
+                git credentialsId: 'semyonb20', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
+             }
+        }
         stage('Подготовка') {
             steps {
                 sh "python --version"
