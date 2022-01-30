@@ -13,9 +13,7 @@ pipeline {
         }
         stage('Развертывание') {
             steps {
-                sh 'sed -i 's/latest/$BUILD_NUMBER/' docker-compose.yaml'
-                sh 'cp env.docker .env'
-                sh 'docker-compose up -d --force-recreate'
+                sh 'cdr=$(pwd); $cdr/deploy.sh'
             }
         }
     }
