@@ -14,7 +14,7 @@ pipeline {
         stage('Развертывание') {
             steps {
                 sh './deploy.sh'
-                sh '/usr/local/bin/docker-compose up -d --force-recreate'
+                sh '/usr/bin/docker-compose up -d --force-recreate'
             }
         }
     }
