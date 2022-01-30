@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Развертывание') {
             steps {
-                sh 'cdr=$(pwd); $cdr/deploy.sh'
+                sh 'deploy.sh'
             }
         }
     }
