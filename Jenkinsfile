@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-                git credentialsId: 'semyonb20', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
+                git credentialsId: 'github', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
              }
         }
         stage('Building image') {
@@ -27,15 +27,19 @@ pipeline {
             }
           }     
         }
-        stage('Сборка') {
-            steps {
-                echo 'Выполняем команды для сборки'
-            }
-        }
         stage('Тестирование') {
             steps {
                 echo 'Тестируем нашу сборку'
             }
+        }
+        stage('Push image to registry') {
+          steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+              dockerImage.push()
+              }
+            }
+          }     
         }
         stage('Развертывание') {
             steps {
