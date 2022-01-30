@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'pwd'
-                sh "./deploy.sh"
+                sh 'bash deploy.sh'
             }
         }
     }
