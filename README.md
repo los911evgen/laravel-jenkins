@@ -13,7 +13,7 @@
 ## Этапы пайплайна:
   * Checkout SCM
   * Сборка
-  * Экспорт в registry
+  * Публикация образа в registry
   * Deployment
 
 -----
