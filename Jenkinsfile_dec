@@ -13,9 +13,9 @@ pipeline {
         }
         stage('Развертывание') {
             steps {
-                sh 'ls'
-                sh 'pwd'
-                sh 'bash deploy.sh'
+                sh 'sed -i 's/latest/$BUILD_NUMBER/' docker-compose.yaml'
+                sh 'cp env.docker .env'
+                sh 'docker-compose up -d --force-recreate'
             }
         }
     }
