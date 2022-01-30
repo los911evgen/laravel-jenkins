@@ -11,6 +11,27 @@ pipeline {
                 git credentialsId: 'github', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
              }
         }
+        stage('Building image') {
+            steps{
+              script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+              }
+            }
+        }
+        stage('Тестирование') {
+            steps {
+                echo 'Тестируем нашу сборку'
+            }
+        }
+        stage('Push image to registry') {
+          steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+              dockerImage.push()
+              }
+            }
+          }     
+        }
         stage('Развертывание') {
             steps {
                 sh './deploy.sh'
