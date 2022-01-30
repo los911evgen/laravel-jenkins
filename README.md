@@ -39,8 +39,8 @@
 
 -----
 
-В процессе сборки создаётся образ, ТЭК которого соответствует номеру сборки в Jenkins Pipeline. При деплое приложение разворачивается непосредственно с образа последней сборки. После успешной сборки приложение будет доступно по пути <a target="_blank" href="http://localhost:8000/">zip</a>.
+В процессе сборки создаётся образ, ТЭК которого соответствует номеру сборки в Jenkins Pipeline. При деплое приложение разворачивается непосредственно с образа последней сборки. После успешной сборки приложение будет доступно по пути <a target="_blank" href="http://localhost:8000/">http://localhost:8000/</a>.
 
-Более подробно о самом приложении тут <a target="_blank" href="https://github.com/ozdemirburak/laravel-8-simple-cms.git">zip</a>
+Более подробно о самом приложении тут <a target="_blank" href="https://github.com/ozdemirburak/laravel-8-simple-cms.git">Laravel Simple CMS</a>
 
 
