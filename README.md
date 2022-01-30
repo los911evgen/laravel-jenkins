@@ -1,18 +1,16 @@
-# Laravel 8 Simple CMS
-Basic boilerplate content management system for starters, supports Laravel 8.0.
+# Laravel 8 Simple CMS dockerized with Jenkins Pipeline
+Взято из  https://github.com/ozdemirburak/laravel-8-simple-cms.git и доработано для организации процесса непрерывной интеграции и доставки средствами Docker и Jenkins
 
 -----
-## Table of Contents
+## Оглавление
 
-* [Features](#item1)
-* [Quick Start](#item2)
-* [Installation Guide](#item3)
-* [User Guide](#item4)
-* [Screenshots](#item5)
+* [Возможности](#item1)
+* [Развёртывание](#item2)
+* [Использование](#item3)
 
 -----
 <a name="item1"></a>
-## Features:
+## Возможности:
 * Admin Panel
   * Custom template with Bulma
   * Google Analytics API integrated dashboard
@@ -94,55 +92,6 @@ To serve the application, you can use `php artisan serve`, then open [http://loc
 from your browser. To access the admin panel, hit the link [http://localhost:8000/admin](http://localhost:8000/admin) 
 from your browser. The application comes with default user with email address `admin@admin.com` and `123456`.
 
------
-<a name="step4"></a>
-### Step 4: Extras
-
-If you want to use the Gmail client to send emails, you need to change the `MAIL_USERNAME` variable as your 
-Gmail username without `@gmail.com` and password as your Gmail password, `MAIL_FROM_ADDRESS` is your 
-Gmail account with `@gmail.com` and `MAIL_FROM_NAME` is your name that is registered to that Gmail account.
-
-To use the Analytics API, and have all the features of the dashboard, 
-follow the instructions explained in detail [here](https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-communicate-with-google-analytics).
-You will also need a key for Google Javascript API, has the instructions [here](https://developers.google.com/maps/documentation/javascript/get-api-key). Also if you want to use CAPTCHA in the login form, you will also need to secrets and keys from [here](https://www.google.com/recaptcha).
-
-Finally, if you need to re-initialize our simple boilerplate CMS, just run the command below where it will also 
-update the assets for you.
-
-    $ php artisan cms:initialize --seed --node
-
------
-
-<a name="item4"></a>
-## User Guide
-
-* [How to Create a New Resource](#u1)
-
------
-<a name="u1"></a>
-### How to Create a New Resource
-
-Lets assume we want to create a new resource for fruits where it will have title, description and content attributes.
-
-    $ php artisan cms:resource fruit --migrate
-
-You will see an output like below. The CMS generator will do **ALL** the boring stuff for you, 
-it will create a migration file with a title, description, content, and slug columns by default, 
-also the respecting Controller and Model files, it will also add the resource to routes, RouteServiceProvider,
-even it will add the basic language key value pairs to the language file.
-
-Just check and edit the files below to proceed.
-
-```
-Created file: database/migrations/2018_10_19_000000_create_fruits_table.php
-Created file: app/Models/Fruit.php
-Created file: app/Http/Controllers/Admin/DataTables/FruitDataTable.php
-Created file: app/Http/Controllers/Admin/FruitController.php
-Created file: resources/views/admin/forms/fruit.blade.php
-Added route to: routes/admin.php
-Added resource language key to: resources/lang/en/resources.php
-Added model binding to: app/Providers/RouteServiceProvider.php
-```
 
 -----
 <a name="item5"></a>
