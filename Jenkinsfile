@@ -18,15 +18,6 @@ pipeline {
               }
             }
         }
-        stage('Deploy Image') {
-          steps{
-            script {
-              docker.withRegistry( '', registryCredential ) {
-              dockerImage.push()
-              }
-            }
-          }     
-        }
         stage('Тестирование') {
             steps {
                 echo 'Тестируем нашу сборку'
