@@ -6,12 +6,12 @@ pipeline {
       dockerImage = ''
     }
     stages {
-        stage('Checkout Source') {
+        stage('Checkout') {
             steps {
                 git credentialsId: 'github', url:'https://github.com/los911evgen/laravel-jenkins.git', branch:'main'
              }
         }
-        stage('Building image') {
+        stage('Сборка образа') {
             steps{
               script {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -20,10 +20,10 @@ pipeline {
         }
         stage('Тестирование') {
             steps {
-                echo 'Тестируем нашу сборку'
+                echo 'Здесь будет тестирование кода и тп'
             }
         }
-        stage('Push image to registry') {
+        stage('Публикация в registry') {
           steps{
             script {
               docker.withRegistry( '', registryCredential ) {
