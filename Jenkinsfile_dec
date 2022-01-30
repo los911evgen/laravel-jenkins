@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Развертывание') {
             steps {
-                sh 'deploy.sh'
+                sh './deploy.sh'
             }
         }
     }
